@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./photo-scroller.module.scss";
 import Image from "next/image";
 

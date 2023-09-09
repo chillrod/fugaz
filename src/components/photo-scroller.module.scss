@@ -1,8 +1,8 @@
 .photo-scroller {
   position: relative;
   width: 100vw;
-  height: calc(100vh - 400px);
-  padding: 2rem 0;
+  height: calc(50vh);
+  padding: 2em 0;
   overflow: hidden;
 
   &__photo {
@@ -14,7 +14,7 @@
     justify-content: space-around;
     background-color: var(--amber-2);
 
-    box-shadow: 30px -10px 0 0 var(--amber-5), 45px -45px 0 -2px var(--amber-2),
+    box-shadow: 30px -10px 0 0 var(--orange-10), 45px -45px 0 -2px var(--amber-2),
       60px -60px 0 -2px var(--amber-2), 90px -90px 0 0 var(--accent-8);
 
     img {

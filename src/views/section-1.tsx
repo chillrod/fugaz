@@ -45,8 +45,8 @@ export default function Section1() {
               className={styles["section1__logo"]}
               src="/fugaz-logo.svg"
               alt="Fugaz"
-              width={100}
-              height={100}
+              width={40}
+              height={40}
             ></Image>
           </div>
         </section>

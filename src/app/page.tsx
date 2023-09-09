@@ -26,7 +26,7 @@ export default function Home() {
         {isLoading ? (
           <SplashScreen />
         ) : (
-          <Grid gapY="5">
+          <Grid>
             <HomeScreen />
             {/* <Section1 /> */}
           </Grid>

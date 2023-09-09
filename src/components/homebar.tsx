@@ -28,14 +28,14 @@ export default function HomeBar() {
         <Image src="/star.svg" width={30} height={30} alt="Estrela" />
       </div>
 
-      <ul className={styles["homebar__links"]}>
+      {/* <ul className={styles["homebar__links"]}>
         <Link href="/" as="li">
           <Text>Sobre nós</Text>
         </Link>
         <Link href="/" as="li">
           <Text>Clientes</Text>
         </Link>
-      </ul>
+      </ul> */}
       {/* <HomeImage
         alt="Logo Fugaz"
         src="/fugaz-logo.svg"
