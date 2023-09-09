@@ -1,47 +1,84 @@
+import { Text } from "@radix-ui/themes";
 import styles from "./home.module.scss";
 
-import { motion, Variants } from "@/lib/framer-motion";
+import { AnimatePresence, motion, Variants } from "@/lib/framer-motion";
+import { Arimo } from "next/font/google";
 import Migra from "next/font/local";
 import Image from "next/image";
+import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
+
+const arimo = Arimo({
+  subsets: ["latin-ext"],
+  weight: ["400", "500", "700"],
+  variable: "--font-arimo",
+});
 
 const migra = Migra({
-  src: "../app/Migra-Extrabold.ttf",
+  src: "../fonts/Migra-Extrabold.ttf",
   variable: "--font-migra",
 });
 
-export const HomePhotoVariant: Variants = {
+export const homePageAnimationVariant: Variants = {
   offscreen: {
-    y: -15,
+    y: -45,
   },
   onscreen: {
     y: 0,
     rotate: 0,
     transition: {
-      type: "tween",
+      type: "spring",
+      stiffness: 100,
+      duration: 3,
     },
   },
 };
 
+const photos: PhotoScrollerProps[] = [
+  {
+    src: "/picture 1.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+  {
+    src: "/picture 3.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+  {
+    src: "/picture 4.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+];
+
 export default function HomeScreen() {
   return (
-    <motion.div
+    <motion.main
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: false, amount: 0.15 }}
     >
-      <motion.div variants={HomePhotoVariant}>
-        <main className={`${styles.home} ${migra.variable}`}>
+      <motion.div variants={homePageAnimationVariant}>
+        <div className={`${styles.home} ${arimo.variable} ${migra.variable}`}>
           <motion.div
+            className={styles["home__title-container"]}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
           >
+            <Text className={`${styles["home__caption"]} ${arimo.variable}`}>
+              Fugaz & Co. Consultoria gastronômica
+            </Text>
             <h1 className={styles["home__title"]}>
               O sucesso do seu negócio com nossa consultoria gastronômica
               personalizada
             </h1>
+            <Text
+              className={`${styles["home__caption"]} ${styles["home__caption--right"]} ${arimo.variable}`}
+            >
+              Fugaz & Co. Consultoria gastronômica
+            </Text>
           </motion.div>
-
+          <div className={styles["home__photo-container"]}>
+            <PhotoScroller photos={photos} />
+          </div>
           <Image
             className={styles["home__circular-text"]}
             src="/gastronomia-elegante.svg"
@@ -49,18 +86,8 @@ export default function HomeScreen() {
             height="100"
             alt="Gastronomia elegante"
           />
-
-          <div className={styles["home__photo-container"]}>
-            <Image
-              className={styles["home__photo"]}
-              src="/picture 1.png"
-              width="400"
-              height="500"
-              alt="Foto de um homem preparando um prato de comida"
-            />
-          </div>
-        </main>
+        </div>
       </motion.div>
-    </motion.div>
+    </motion.main>
   );
 }

@@ -1,0 +1,52 @@
+.photo-scroller {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 400px);
+  padding: 2rem 0;
+  overflow: hidden;
+
+  &__photo {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--amber-2);
+
+    box-shadow: 30px -10px 0 0 var(--amber-5), 45px -45px 0 -2px var(--amber-2),
+      60px -60px 0 -2px var(--amber-2), 90px -90px 0 0 var(--accent-8);
+
+    img {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+    }
+  }
+
+  &__photo-primary {
+    animation: primary 15s linear infinite;
+  }
+
+  &__photo-secondary {
+    animation: secondary 15s linear infinite;
+  }
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}

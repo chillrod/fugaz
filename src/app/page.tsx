@@ -8,7 +8,7 @@ import { Grid } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -16,7 +16,7 @@ export default function Home() {
     }, 2500);
 
     return () => {
-      setIsLoading(true);
+      setIsLoading(false);
     };
   }, []);
 
@@ -28,7 +28,7 @@ export default function Home() {
         ) : (
           <Grid gapY="5">
             <HomeScreen />
-            <Section1 />
+            {/* <Section1 /> */}
           </Grid>
         )}
       </AnimatePresence>
