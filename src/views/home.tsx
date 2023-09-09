@@ -35,15 +35,15 @@ export const homePageAnimationVariant: Variants = {
 
 const photos: PhotoScrollerProps[] = [
   {
-    src: "/picture2.jpg",
+    src: "/picture2.webp",
     alt: "Foto de um homem preparando um prato de comida",
   },
   {
-    src: "/picture1.jpg",
+    src: "/picture1.webp",
     alt: "Foto de um homem preparando um prato de comida",
   },
   {
-    src: "/picture3.jpg",
+    src: "/picture3.webp",
     alt: "Foto de um homem preparando um prato de comida",
   },
 ];
