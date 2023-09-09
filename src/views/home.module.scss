@@ -18,7 +18,7 @@
     line-height: 0.85;
     color: var(--accent-9);
     width: 100%;
-    max-width: 1500px;
+    max-width: 800px;
 
     @media (min-width: $sm) {
       font-size: 3.5em;
@@ -26,7 +26,7 @@
 
     @media (min-width: $md) {
       font-size: 7em;
-      max-width: 85%;
+      max-width: 75%;
     }
   }
 
