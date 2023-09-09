@@ -23,14 +23,7 @@ export default function Home() {
   return (
     <>
       <AnimatePresence>
-        {isLoading ? (
-          <SplashScreen />
-        ) : (
-          <Grid>
-            <HomeScreen />
-            {/* <Section1 /> */}
-          </Grid>
-        )}
+        {isLoading ? <SplashScreen /> : <HomeScreen />}
       </AnimatePresence>
     </>
   );

@@ -78,6 +78,13 @@ export default function HomeScreen() {
           </motion.div>
           <div className={styles["home__photo-container"]}>
             <PhotoScroller photos={photos} />
+            <Image
+              className={styles["home__circular-text"]}
+              src="/gastronomia-elegante.svg"
+              width="400"
+              height="400"
+              alt="Gastronomia elegante"
+            />
           </div>
         </div>
       </motion.div>
