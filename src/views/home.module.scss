@@ -16,19 +16,15 @@
       "title photo"
       "circular-text photo";
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 70% 1fr;
   }
 
   &__title {
-    font-size: 4rem;
+    font-size: 3rem;
     width: 100%;
     max-width: $lg;
     color: var(--accent-9);
     line-height: 0.8;
-
-    @media (min-width: $sm) {
-      font-size: 5rem;
-    }
 
     @media (min-width: $md) {
       font-size: 6rem;
@@ -60,12 +56,13 @@
     grid-area: photo;
     align-self: center;
     justify-self: center;
+    overflow: hidden;
   }
 
   &__photo {
     width: 100%;
     object-fit: cover;
-    box-shadow: var(--accent-10) 40px 40px;
+    box-shadow: var(--accent-10) 150px 150px;
     height: $sm;
   }
 }
