@@ -1,0 +1,14 @@
+.circular-text {
+  position: relative;
+  svg {
+    position: absolute;
+  }
+
+  path {
+    fill: none;
+  }
+
+  text {
+    fill: var(--accent-12);
+  }
+}

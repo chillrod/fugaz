@@ -1,0 +1,77 @@
+@import "@/styles/variables";
+
+.home {
+  font-family: var(--font-migra);
+  position: relative;
+
+  display: grid;
+  align-items: center;
+  grid-template-areas:
+    "title"
+    "photo"
+    "circular-text";
+
+  @media (min-width: $md) {
+    grid-template-areas:
+      "title photo"
+      "circular-text photo";
+  }
+
+  &__title {
+    font-size: 4rem;
+    width: 100%;
+    max-width: $lg;
+    color: var(--accent-9);
+    line-height: 0.8;
+
+    @media (min-width: $sm) {
+      font-size: 5rem;
+    }
+
+    @media (min-width: $md) {
+      font-size: 6rem;
+    }
+
+    @media (min-width: $lg) {
+      padding: 0 16px;
+      font-size: 7rem;
+      max-width: $lg;
+    }
+
+    @media (min-width: $xl) {
+      font-size: 9rem;
+    }
+  }
+
+  &__circular-text {
+    grid-area: circular-text;
+    align-self: start;
+
+    justify-self: start;
+    align-self: start;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+  }
+
+  &__logo {
+    grid-area: circular-text;
+    z-index: 1;
+    position: absolute;
+    bottom: 80%;
+    left: 90%;
+  }
+
+  &__photo-container {
+    grid-area: photo;
+    align-self: center;
+    justify-self: center;
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: var(--accent-10) 40px 40px;
+    height: $sm;
+  }
+}
