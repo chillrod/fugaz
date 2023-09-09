@@ -12,18 +12,18 @@ export interface PhotoScrollerProps {
 export const photoScrollerVariants: Variants = {
   offscreen: {
     scale: 1,
-    y: 45,
+    y: -15,
     transition: {
       type: "tween",
       duration: 1.5,
     },
   },
   onscreen: {
-    scale: 1.2,
-    y: -15,
+    scale: 1.1,
+    y: -45,
     transition: {
       type: "tween",
-      duration: 1.5,
+      duration: 0.75,
     },
   },
 };
@@ -37,7 +37,7 @@ export default function PhotoScroller({
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.8 }}
     >
       <motion.div
         variants={photoScrollerVariants}

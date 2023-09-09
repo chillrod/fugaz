@@ -20,7 +20,7 @@ const migra = Migra({
 
 export const homePageAnimationVariant: Variants = {
   offscreen: {
-    y: -45,
+    y: -30,
   },
   onscreen: {
     y: 0,
@@ -35,15 +35,15 @@ export const homePageAnimationVariant: Variants = {
 
 const photos: PhotoScrollerProps[] = [
   {
-    src: "/picture 1.webp",
+    src: "/picture2.jpg",
     alt: "Foto de um homem preparando um prato de comida",
   },
   {
-    src: "/picture 3.webp",
+    src: "/picture1.jpg",
     alt: "Foto de um homem preparando um prato de comida",
   },
   {
-    src: "/picture 4.webp",
+    src: "/picture3.jpg",
     alt: "Foto de um homem preparando um prato de comida",
   },
 ];
@@ -53,7 +53,7 @@ export default function HomeScreen() {
     <motion.main
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: false, amount: 0.5 }}
     >
       <motion.div variants={homePageAnimationVariant}>
         <div className={`${styles.home} ${arimo.variable} ${migra.variable}`}>
@@ -78,13 +78,6 @@ export default function HomeScreen() {
           </motion.div>
           <div className={styles["home__photo-container"]}>
             <PhotoScroller photos={photos} />
-            <Image
-              className={styles["home__circular-text"]}
-              src="/gastronomia-elegante.svg"
-              width="400"
-              height="400"
-              alt="Gastronomia elegante"
-            />
           </div>
         </div>
       </motion.div>

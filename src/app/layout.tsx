@@ -35,10 +35,9 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body className={`${styles.app} ${ovo.variable}`}>
-        <Theme accentColor="orange" hasBackground>
+        <Theme accentColor="orange">
           <HomeBar />
           {children}
-          <HomeBar />
         </Theme>
       </body>
     </html>
