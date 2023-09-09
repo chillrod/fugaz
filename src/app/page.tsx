@@ -4,6 +4,7 @@ import SplashScreen from "@/components/splash-creen";
 import { AnimatePresence } from "@/lib/framer-motion";
 import HomeScreen from "@/views/home";
 import Section1 from "@/views/section-1";
+import { Grid } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -25,10 +26,10 @@ export default function Home() {
         {isLoading ? (
           <SplashScreen />
         ) : (
-          <>
+          <Grid gapY="5">
             <HomeScreen />
             <Section1 />
-          </>
+          </Grid>
         )}
       </AnimatePresence>
     </>
