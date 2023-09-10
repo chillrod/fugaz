@@ -1,6 +1,6 @@
 ---
 title: 'HomePage'
-status: 'draft'
+status: 'published'
 author:
   name: 'chillrod'
   picture: ''
