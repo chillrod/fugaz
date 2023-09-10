@@ -7,18 +7,23 @@
   top: 0;
   z-index: 2;
   padding: 12px;
+  width: 95%;
+  margin: 0 auto;
 
   font-family: var(--font-ovo);
+  transition: all 0.2s ease-in-out;
 
-  /* From https://css.glass */
-  backdrop-filter: blur(8.9px);
-  -webkit-backdrop-filter: blur(8.9px);
-  border-bottom: 1px solid var(--accent-3);
+  &:hover {
+    width: 99%;
+    /* From https://css.glass */
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+  }
 
   &__logo {
     text-decoration: none;
     color: var(--accent-10);
-    font-size: var(--font-size-6);
+    font-size: var(--font-size-7);
     padding: 0;
     margin: 0;
   }

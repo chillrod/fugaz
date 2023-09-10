@@ -1,11 +1,11 @@
 import { Text } from "@radix-ui/themes";
 import styles from "./home.module.scss";
 
-import { AnimatePresence, motion, Variants } from "@/lib/framer-motion";
+import { LayoutGroup, motion, Variants } from "@/lib/framer-motion";
 import { Arimo } from "next/font/google";
-import Migra from "next/font/local";
-import Image from "next/image";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
+import { useEffect } from "react";
+import Image from "next/image";
 
 const arimo = Arimo({
   subsets: ["latin-ext"],
@@ -13,22 +13,17 @@ const arimo = Arimo({
   variable: "--font-arimo",
 });
 
-const migra = Migra({
-  src: "../fonts/Migra-Extrabold.ttf",
-  variable: "--font-migra",
-});
-
 export const homePageAnimationVariant: Variants = {
   offscreen: {
-    y: -30,
+    y: 200,
   },
   onscreen: {
     y: 0,
     rotate: 0,
     transition: {
       type: "spring",
-      stiffness: 100,
-      duration: 3,
+      stiffness: 35,
+      duration: 0.1,
     },
   },
 };
@@ -49,38 +44,56 @@ const photos: PhotoScrollerProps[] = [
 ];
 
 export default function HomeScreen() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
   return (
-    <motion.main
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: false, amount: 0.5 }}
-    >
-      <motion.div variants={homePageAnimationVariant}>
-        <div className={`${styles.home} ${arimo.variable} ${migra.variable}`}>
-          <motion.div
-            className={styles["home__title-container"]}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
-          >
-            <Text className={`${styles["home__caption"]} ${arimo.variable}`}>
-              Fugaz & Co. Consultoria gastronômica
+    <LayoutGroup>
+      <motion.main
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        <motion.div
+          variants={homePageAnimationVariant}
+          className={`${styles["home"]} ${arimo.variable}`}
+        >
+          <Text size="7" className={styles["home__hero"]}>
+            <span hidden>
+              A Fugaz oferece consultoria gastronômica para experiências
+              memoráveis com sabores de alta classe. Tenha mais eficiência e
+              qualidade em seu estabelecimento com uma consultoria assertiva e
+              de alta qualidade. Com metodologia ágil e profissionais altamente
+              qualificados, a Fugaz é a melhor opção para seu negócio.
+            </span>
+          </Text>
+
+          <Image
+            className={`${styles["home__hero-image"]}`}
+            src="/gastronomia-elegante.svg"
+            alt="Gatronomia"
+            width={200}
+            height={200}
+          />
+
+          <span className={`${styles["home__hero-after"]}`}>
+            <Text className={`${styles["home__hero-heading"]}`}>
+              Fu
+              <br />
+              gaz
             </Text>
-            <h1 className={styles["home__title"]}>
-              O sucesso do seu negócio com nossa consultoria gastronômica
-              personalizada
-            </h1>
-            <Text
-              className={`${styles["home__caption"]} ${styles["home__caption--right"]} ${arimo.variable}`}
-            >
-              Fugaz & Co. Consultoria gastronômica
-            </Text>
-          </motion.div>
-          <div className={styles["home__photo-container"]}>
+            <Text className={`${styles["home__hero-paragraph"]}`}>&Co.</Text>
+          </span>
+          <div className={styles["home__hero-image-container"]}>
             <PhotoScroller photos={photos} />
           </div>
-        </div>
-      </motion.div>
-    </motion.main>
+        </motion.div>
+      </motion.main>
+    </LayoutGroup>
   );
 }

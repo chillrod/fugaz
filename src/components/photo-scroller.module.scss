@@ -1,26 +1,38 @@
+@import "@/styles/variables";
+
 .photo-scroller {
   position: relative;
-  width: 100vw;
-  height: calc(100vh - 200px);
-  padding-top: 2em;
+  width: 100%;
+  height: 40vh;
+  z-index: -1;
   overflow: hidden;
 
   &__photo {
     width: inherit;
     height: inherit;
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: var(--orange-2);
 
-    box-shadow: 30px -10px 0 0 var(--orange-9), 45px -45px 0 -2px var(--orange-2),
-      60px -60px 0 -2px var(--orange-2), 90px -90px 0 0 var(--accent-9);
+    display: grid;
+    white-space: nowrap;
+    gap: 16px;
+
+    @media (min-width: $md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
 
     img {
-      width: 90%;
-      height: 90%;
+      padding: 8px;
+
+      width: 40vh;
+      height: 40vh;
       object-fit: cover;
+      padding: 16px;
+      @media (min-width: $md) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

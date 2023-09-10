@@ -7,13 +7,26 @@ import { Variants, motion } from "@/lib/framer-motion";
 
 export const Section1Variant: Variants = {
   offscreen: {
-    y: 200,
+    y: 150,
   },
   onscreen: {
-    y: 0,
-    rotate: 0,
+    y: -45,
+    scale: 1,
     transition: {
       type: "tween",
+    },
+  },
+};
+
+export const imageVairant: Variants = {
+  offscreen: {
+    scale: 1.5,
+  },
+  onscreen: {
+    scale: 1,
+    transition: {
+      type: "tween",
+      duration: 0.5,
     },
   },
 };
@@ -23,22 +36,31 @@ export default function Section1() {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: false, amount: 0.5 }}
     >
       <motion.div variants={Section1Variant}>
         <section className={styles.section1}>
           <div className={styles["section1__clip"]}>
-            <Image
-              className={styles["section1__photo-container"]}
-              src="/picture 2.png"
-              alt="Foto 2"
-              width={300}
-              height={300}
-            ></Image>
+            <motion.div variants={imageVairant}>
+              <Image
+                className={styles["section1__photo"]}
+                src="/sobrenos.jpg"
+                alt="Foto 2"
+                width={300}
+                height={300}
+              ></Image>
+            </motion.div>
           </div>
           <div className={styles["section1__intersect-line"]}></div>
 
-          <ArticleInfo />
+          <div className={styles["section1__article-info"]}>
+            <ArticleInfo
+              articleTitle="Sobre nós"
+              articleText="A Fugaz é uma empresa de consultoria gastronômica que atua no mercado
+        desde 2015. Nossa missão é ajudar nossos clientes a alcançarem o sucesso
+        através de uma consultoria personalizada e de qualidade."
+            />
+          </div>
 
           <div className={styles["section1__logo-container"]}>
             <Image
