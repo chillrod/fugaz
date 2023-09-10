@@ -1,5 +1,7 @@
 @import "./variables.scss";
 .app {
   height: 100%;
-  background-color: var(--orange-3);
+  background-color: var(--orange-2);
+
+  overflow-x: hidden;
 }

@@ -3,19 +3,14 @@ import styles from "./home.module.scss";
 
 import { LayoutGroup, motion, Variants } from "@/lib/framer-motion";
 import { Arimo } from "next/font/google";
-import Migra from "next/font/local";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
 import { useEffect } from "react";
+import Image from "next/image";
 
 const arimo = Arimo({
   subsets: ["latin-ext"],
   weight: ["400", "500", "700"],
   variable: "--font-arimo",
-});
-
-const migra = Migra({
-  src: "../fonts/Migra-Extrabold.ttf",
-  variable: "--font-migra",
 });
 
 export const homePageAnimationVariant: Variants = {
@@ -77,6 +72,14 @@ export default function HomeScreen() {
               qualificados, a Fugaz é a melhor opção para seu negócio.
             </span>
           </Text>
+
+          <Image
+            className={`${styles["home__hero-image"]}`}
+            src="/gastronomia-elegante.svg"
+            alt="Gatronomia"
+            width={200}
+            height={200}
+          />
 
           <span className={`${styles["home__hero-after"]}`}>
             <Text className={`${styles["home__hero-heading"]}`}>

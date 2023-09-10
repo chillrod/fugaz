@@ -14,12 +14,14 @@ $speeds: (
   position: relative;
   display: grid;
   gap: 16px;
+  margin-top: 5vh;
 
   &__hero {
     color: var(--accent-9);
     display: block;
     padding: 16px;
-    width: 70%;
+    width: 60%;
+    margin: 0 auto;
 
     height: 30vh;
 
@@ -63,6 +65,17 @@ $speeds: (
     }
   }
 
+  &__hero-image {
+    position: absolute;
+    right: 20%;
+    top: 30%;
+    transform: scale(0.5);
+
+    @media (min-width: $md) {
+      transform: scale(1.2);
+    }
+  }
+
   &__hero-paragraph {
     font-size: 4.5em;
     font-weight: var(--font-weight-light);
@@ -75,6 +88,8 @@ $speeds: (
 
   &__hero-image-container {
     z-index: -1;
-    background-color: var(--grass-12);
+    background-color: var(--orange-10);
+
+    height: 50vh;
   }
 }
