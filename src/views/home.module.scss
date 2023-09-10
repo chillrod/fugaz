@@ -1,59 +1,80 @@
 @import "@/styles/variables";
+@import "@/styles/typed";
+
+$string: "A Fugaz oferece consultoria gastronômica para experiências memoráveis com sabores de alta classe.";
+$string2: "Tenha mais eficiência e qualidade em seu estabelecimento com uma consultoria assertiva e de alta qualidade.";
+$string3: "Com metodologia ágil e profissionais altamente qualificados, a Fugaz é a melhor opção para seu negócio.";
+$speeds: (
+  type: 0.1,
+);
 
 .home {
-  font-family: var(--font-migra);
+  font-family: var(--font-arimo);
 
   position: relative;
+  display: grid;
+  gap: 16px;
 
-  &__title-container {
-    grid-row: 1;
-    grid-column: 1;
+  &__hero {
+    color: var(--accent-9);
+    display: block;
     padding: 16px;
+    width: 70%;
+
+    height: 30vh;
+
+    @media (min-width: $md) {
+      height: 25vh;
+    }
+
+    @include typed(
+      $string,
+      $string2,
+      $string3,
+      (
+        type: 0.06,
+        delete: 0.03,
+        pause-deleted: 0.1,
+      ),
+      (
+        iterations: 1,
+      )
+    );
   }
 
-  &__title {
-    font-size: 3em;
-    line-height: 0.95;
+  &__hero-after {
     color: var(--accent-9);
     width: 100%;
-    max-width: 800px;
-    border-left: 0.5px dashed var(--accent-10);
-    padding-left: 6px;
+  }
+
+  &__hero-heading {
+    font-weight: var(--font-weight-bold);
+    font-size: 12em;
+    padding: 0;
+    margin: 0;
+    line-height: 0.45;
 
     @media (min-width: $sm) {
-      font-size: 3.5em;
+      font-size: 20em;
     }
 
     @media (min-width: $md) {
-      font-size: 7em;
-      max-width: 75%;
+      font-size: 25em;
     }
   }
 
-  &__caption {
-    font-family: var(--font-arimo);
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-
-    &--right {
-      display: block;
-      transform: rotate(-180deg);
-      margin-right: 16px;
-    }
+  &__hero-paragraph {
+    font-size: 4.5em;
+    font-weight: var(--font-weight-light);
+    font-style: italic;
+    display: inline-block;
+    text-align: right;
+    padding: 0;
+    margin: 0;
   }
 
-  &__circular-text {
-    position: absolute;
-    z-index: 3;
-    top: 20%;
-    opacity: 0.5;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &__photo-container {
-    position: relative;
-    background-color: var(--accent-1);
+  &__hero-image-container {
+    z-index: -1;
+    background-color: var(--grass-12);
   }
 }

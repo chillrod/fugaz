@@ -12,18 +12,19 @@ export interface PhotoScrollerProps {
 export const photoScrollerVariants: Variants = {
   offscreen: {
     scale: 1,
-    y: -15,
+    y:-350,
     transition: {
-      type: "tween",
-      duration: 1.5,
+      type: "spring",
+      duration: 2,
+      delay: 0.5,
     },
   },
   onscreen: {
-    scale: 1.1,
-    y: -45,
+    scale: 1.2,
+    y: -100,
     transition: {
-      type: "tween",
-      duration: 0.75,
+      type: "spring",
+      duration: 2,
     },
   },
 };
