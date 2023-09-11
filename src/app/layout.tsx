@@ -38,6 +38,7 @@ export default function RootLayout({
         <Theme accentColor="orange">
           <HomeBar />
           {children}
+          <HomeBar />
         </Theme>
       </body>
     </html>
