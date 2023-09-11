@@ -10,23 +10,17 @@ $speeds: (
 
 .home {
   font-family: var(--font-arimo);
-
   position: relative;
-  display: grid;
-  gap: 16px;
-  margin-top: 5vh;
 
   &__hero {
     color: var(--accent-9);
     display: block;
     padding: 16px;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
 
-    height: 30vh;
-
-    @media (min-width: $md) {
-      height: 25vh;
+    @media (max-height: $md) {
+      min-height: 45vh;
     }
 
     @include typed(
@@ -42,6 +36,14 @@ $speeds: (
         iterations: 1,
       )
     );
+  }
+
+  &__social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 2;
   }
 
   &__hero-after {
@@ -68,7 +70,7 @@ $speeds: (
   &__hero-image {
     position: absolute;
     right: 20%;
-    top: 30%;
+    top: 40%;
     transform: scale(0.5);
 
     @media (min-width: $md) {
@@ -88,8 +90,7 @@ $speeds: (
 
   &__hero-image-container {
     z-index: -1;
+    position: relative;
     background-color: var(--orange-10);
-
-    height: 50vh;
   }
 }

@@ -6,6 +6,8 @@ import { Arimo } from "next/font/google";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
 import { useEffect } from "react";
 import Image from "next/image";
+import SocialMediaLink from "@/components/social-media-link";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
 const arimo = Arimo({
   subsets: ["latin-ext"],
@@ -15,14 +17,14 @@ const arimo = Arimo({
 
 export const homePageAnimationVariant: Variants = {
   offscreen: {
-    y: 200,
+    y: 300,
   },
   onscreen: {
-    y: 0,
+    y: 10,
     rotate: 0,
     transition: {
       type: "spring",
-      stiffness: 35,
+      stiffness: 15,
       duration: 0.1,
     },
   },
@@ -72,6 +74,15 @@ export default function HomeScreen() {
               qualificados, a Fugaz é a melhor opção para seu negócio.
             </span>
           </Text>
+
+          <div className={styles["home__social-media"]}>
+            <SocialMediaLink
+              name="Instagram"
+              url="https://www.instagram.com/fugaz.consultoria"
+            >
+              <InstagramLogoIcon />
+            </SocialMediaLink>
+          </div>
 
           <Image
             className={`${styles["home__hero-image"]}`}

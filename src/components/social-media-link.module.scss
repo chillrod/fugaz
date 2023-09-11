@@ -1,0 +1,12 @@
+.social-media-link {
+  a {
+    text-decoration: none;
+    color: var(--accent-10);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-light);
+
+    &:hover {
+      color: var(--accent-11);
+    }
+  }
+}

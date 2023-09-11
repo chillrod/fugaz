@@ -14,7 +14,6 @@
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    width: 99%;
     /* From https://css.glass */
     backdrop-filter: blur(8.9px);
     -webkit-backdrop-filter: blur(8.9px);
@@ -22,7 +21,7 @@
 
   &__logo {
     text-decoration: none;
-    color: var(--accent-10);
+    color: var(--gray-12);
     font-size: var(--font-size-7);
     padding: 0;
     margin: 0;

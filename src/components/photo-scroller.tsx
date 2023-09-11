@@ -11,15 +11,13 @@ export interface PhotoScrollerProps {
 
 export const photoScrollerVariants: Variants = {
   offscreen: {
-    scale: 1,
-    y: -350,
+    y: -450,
     transition: {
       type: "spring",
       duration: 2,
     },
   },
   onscreen: {
-    scale: 1.5,
     y: 10,
     transition: {
       type: "spring",
@@ -39,35 +37,13 @@ export default function PhotoScroller({
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.7 }}
     >
-      <motion.div
-        variants={photoScrollerVariants}
-        className={styles["photo-scroller"]}
-      >
-        <div
-          className={`${styles["photo-scroller__photo"]}
-            ${styles["photo-scroller__photo-primary"]}
-            `}
-        >
+      <motion.div variants={photoScrollerVariants}>
+        <div className={styles["photo-scroller"]}>
           {photos.map((photo, id) => {
             return (
               <Image
-                key={id}
-                src={photo.src}
-                alt={photo.alt}
-                width={300}
-                height={300}
-              />
-            );
-          })}
-        </div>
-        <div
-          className={`${styles["photo-scroller__photo"]}
-            ${styles["photo-scroller__photo-secondary"]}
+                className={`${styles["photo-scroller__photo"]}
             `}
-        >
-          {photos.map((photo, id) => {
-            return (
-              <Image
                 key={id}
                 src={photo.src}
                 alt={photo.alt}

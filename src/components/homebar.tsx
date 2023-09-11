@@ -20,16 +20,9 @@ export default function HomeBar() {
         whileHover={{ scale: 1.2 }}
         transition={{ ease: "easeOut", duration: 3 }}
       >
-        <Link href="/" className={styles["homebar__logo"]}>
-          <Text>Fugaz&Co.</Text>
-          {/* <Image
-            className={styles["homebar__logo"]}
-            src="/fugaz-logo.svg"
-            width={120}
-            height={30}
-            alt="Logo Fugaz"
-          /> */}
-        </Link>
+          <Link href="/" className={styles["homebar__logo"]}>
+            <Text size="6">Fugaz&Co.</Text>
+          </Link>
       </motion.div>
       <div className={styles["homebar__art-container"]}>
         <div className={styles["homebar__art-container-dot"]}></div>
