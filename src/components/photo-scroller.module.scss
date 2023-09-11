@@ -10,6 +10,7 @@
 
   &__photo {
     animation: slide 16s linear infinite;
+    height: 100%;
 
     object-fit: cover;
     padding: 16px;
@@ -26,6 +27,6 @@
     transform: translate3d(100vw, 0, 0);
   }
   100% {
-    transform: translate3d(-200vw, 0, 0); /* The image width */
+    transform: translate3d(-150vw, 0, 0); /* The image width */
   }
 }

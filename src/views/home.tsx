@@ -20,7 +20,7 @@ export const homePageAnimationVariant: Variants = {
     y: 300,
   },
   onscreen: {
-    y: 10,
+    y: 0,
     rotate: 0,
     transition: {
       type: "spring",
@@ -32,15 +32,23 @@ export const homePageAnimationVariant: Variants = {
 
 const photos: PhotoScrollerProps[] = [
   {
-    src: "/picture2.webp",
-    alt: "Foto de um homem preparando um prato de comida",
-  },
-  {
     src: "/picture1.webp",
     alt: "Foto de um homem preparando um prato de comida",
   },
   {
+    src: "/picture2.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+  {
     src: "/picture3.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+  {
+    src: "/picture4.webp",
+    alt: "Foto de um homem preparando um prato de comida",
+  },
+  {
+    src: "/picture5.webp",
     alt: "Foto de um homem preparando um prato de comida",
   },
 ];

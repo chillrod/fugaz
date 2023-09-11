@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import styles from "./section-1.module.scss";
 import ArticleInfo from "@/components/article-info";
-import { Variants, motion } from "@/lib/framer-motion";
+import { LayoutGroup, Variants, motion } from "@/lib/framer-motion";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
 
 export const Section1Variant: Variants = {
@@ -20,16 +20,16 @@ export const Section1Variant: Variants = {
 };
 
 export const Section1ImageVariants: Variants = {
-  // offscreen: {
-  //   scale: 1.5,
-  // },
-  // onscreen: {
-  //   scale: 1,
-  //   transition: {
-  //     type: "tween",
-  //     duration: 0.5,
-  //   },
-  // },
+  offscreen: {
+    scale: 1,
+  },
+  onscreen: {
+    scale: 1.2,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+    },
+  },
 };
 
 const photos: PhotoScrollerProps[] = [
@@ -52,7 +52,7 @@ export default function Section1() {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.3 }}
     >
       <motion.div variants={Section1Variant}>
         <section className={styles.section1}>
@@ -60,7 +60,7 @@ export default function Section1() {
             <motion.div variants={Section1ImageVariants}>
               <Image
                 className={styles["section1__photo"]}
-                src="/sobrenos.jpg"
+                src="/sobrenos.webp"
                 alt="Foto 2"
                 width={300}
                 height={300}
@@ -110,7 +110,7 @@ export default function Section1() {
             <motion.div variants={Section1ImageVariants}>
               <Image
                 className={styles["section1__photo"]}
-                src="/sobrenos.jpg"
+                src="/sobrenos.webp"
                 alt="Foto 2"
                 width={300}
                 height={300}
