@@ -2,28 +2,18 @@
 import Image from "next/image";
 
 import styles from "./homebar.module.scss";
-import { motion } from "@/lib/framer-motion";
 import Link from "next/link";
 import { Text } from "@radix-ui/themes";
-import { Ovo } from "next/font/google";
-
-const ovo = Ovo({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-ovo",
-});
+import { ovo } from "@/utils/fonts";
 
 export default function HomeBar() {
   return (
     <nav className={`${styles.homebar} ${ovo.variable}`}>
-      <motion.div
-        whileHover={{ scale: 1.2 }}
-        transition={{ ease: "easeOut", duration: 3 }}
-      >
-          <Link href="/" className={styles["homebar__logo"]}>
-            <Text size="6">Fugaz&Co.</Text>
-          </Link>
-      </motion.div>
+      <div>
+        <Link href="/" className={styles["homebar__logo"]}>
+          <Text size="6">Fugaz&Co.</Text>
+        </Link>
+      </div>
       <div className={styles["homebar__art-container"]}>
         <div className={styles["homebar__art-container-dot"]}></div>
         <Image src="/star.svg" width={30} height={30} alt="Estrela" />

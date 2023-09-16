@@ -1,33 +1,27 @@
-import { Text } from "@radix-ui/themes";
+import { Button, Text } from "@radix-ui/themes";
 import styles from "./home.module.scss";
 
 import { LayoutGroup, motion, Variants } from "@/lib/framer-motion";
-import { Arimo } from "next/font/google";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
 import { useEffect } from "react";
 import Image from "next/image";
 import SocialMediaLink from "@/components/social-media-link";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
-const arimo = Arimo({
-  subsets: ["latin-ext"],
-  weight: ["400", "500", "700"],
-  variable: "--font-arimo",
-});
-
 export const homePageAnimationVariant: Variants = {
-  offscreen: {
-    y: 300,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      stiffness: 15,
-      duration: 0.1,
-    },
-  },
+  // offscreen: {
+  //   y: 400,
+  //   opacity: 0.8,
+  // },
+  // onscreen: {
+  //   y: 0,
+  //   opacity: 1,
+  //   transition: {
+  //     type: "spring",
+  //     stiffness: 15,
+  //     duration: 0.1,
+  //   },
+  // },
 };
 
 const photos: PhotoScrollerProps[] = [
@@ -54,65 +48,74 @@ const photos: PhotoScrollerProps[] = [
 ];
 
 export default function HomeScreen() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
 
-    return () => {
-      window.scrollTo(0, 0);
-    };
-  }, []);
+  //   return () => {
+  //     window.scrollTo(0, 0);
+  //   };
+  // }, []);
 
   return (
-    <LayoutGroup>
-      <motion.main
+    <>
+      <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.div
-          variants={homePageAnimationVariant}
-          className={`${styles["home"]} ${arimo.variable}`}
-        >
-          <Text size="7" className={styles["home__hero"]}>
-            <span hidden>
-              A Fugaz oferece consultoria gastronômica para experiências
-              memoráveis com sabores de alta classe. Tenha mais eficiência e
-              qualidade em seu estabelecimento com uma consultoria assertiva e
-              de alta qualidade. Com metodologia ágil e profissionais altamente
-              qualificados, a Fugaz é a melhor opção para seu negócio.
-            </span>
-          </Text>
+        <LayoutGroup>
+          <motion.main
+            className={styles["home"]}
+            // variants={homePageAnimationVariant}
+          >
+            <section className={styles["home__header"]}>
+              <div
+                className={`${styles["home__cta-content"]} ${styles["home__cta-content--typed"]}`}
+              >
+                <span hidden>
+                  A Fugaz oferece consultoria gastronômica para experiências
+                  memoráveis com sabores de alta classe. Tenha mais eficiência
+                  em seu estabelecimento com consultoria assertiva e de alta
+                  qualidade.
+                </span>
+              </div>
 
-          <div className={styles["home__social-media"]}>
-            <SocialMediaLink
-              name="Instagram"
-              url="https://www.instagram.com/fugaz.consultoria"
-            >
-              <InstagramLogoIcon />
-            </SocialMediaLink>
-          </div>
+              <div className={styles["home__social-media"]}>
+                <Button
+                  onClick={() =>
+                    window.open(
+                      "https://api.whatsapp.com/send?phone=5582137198237&text=Ol%C3%A1!%20Estou%20interessado%20em%20conhecer%20mais%20sobre%20a%20consultoria%20Fugaz."
+                    )
+                  }
+                  size="3"
+                >
+                  Entrar em contato
+                </Button>
 
-          <Image
-            className={`${styles["home__hero-image"]}`}
-            src="/gastronomia-elegante.svg"
-            alt="Gatronomia"
-            width={200}
-            height={200}
-          />
+                <SocialMediaLink
+                  name="Instagram"
+                  url="https://www.instagram.com/fugaz.consultoria"
+                >
+                  <InstagramLogoIcon />
+                </SocialMediaLink>
+              </div>
 
-          <span className={`${styles["home__hero-after"]}`}>
-            <Text className={`${styles["home__hero-heading"]}`}>
-              Fu
-              <br />
-              gaz
-            </Text>
-            <Text className={`${styles["home__hero-paragraph"]}`}>&Co.</Text>
-          </span>
-          <div className={styles["home__hero-image-container"]}>
-            <PhotoScroller photos={photos} />
-          </div>
-        </motion.div>
-      </motion.main>
-    </LayoutGroup>
+              <div className={styles["home__cta-content"]}>
+                <Text className={`${styles["home__cta-heading"]}`}>
+                  Fu
+                  <br />
+                  gaz
+                </Text>
+                <Text className={`${styles["home__cta-paragraph"]}`}>&Co.</Text>
+              </div>
+
+              <div className={styles["home__image-scroller"]}>
+                <PhotoScroller photos={photos} />
+              </div>
+            </section>
+          </motion.main>
+        </LayoutGroup>
+      </motion.div>
+    </>
   );
 }

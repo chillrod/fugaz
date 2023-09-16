@@ -2,95 +2,100 @@
 @import "@/styles/typed";
 
 $string: "A Fugaz oferece consultoria gastronômica para experiências memoráveis com sabores de alta classe.";
-$string2: "Tenha mais eficiência e qualidade em seu estabelecimento com uma consultoria assertiva e de alta qualidade.";
-$string3: "Com metodologia ágil e profissionais altamente qualificados, a Fugaz é a melhor opção para seu negócio.";
+$string2: "Tenha mais eficiência em seu estabelecimento com consultoria assertiva e de alta qualidade.";
+$string3: "Com metodologia ágil, a Fugaz é a melhor opção para seu negócio.";
 $speeds: (
   type: 0.1,
 );
 
 .home {
-  font-family: var(--font-arimo);
   position: relative;
 
-  &__hero {
-    color: var(--accent-9);
-    display: block;
-    padding: 16px;
-    width: 80%;
-    margin: 0 auto;
+  &__header {
+    color: var(--accent-10);
+    display: flex;
+    flex-direction: column;
+    border-bottom: var(--accent-12) 1px dashed;
+  }
 
-    @media (max-height: $md) {
-      min-height: 45vh;
+  &__cta-content {
+    z-index: 0;
+
+    &--typed {
+      padding: 32px;
+      padding-bottom: 0;
+      font-size: 1.5em;
+      height: clamp(2ch, 30vw, 8ch);
+      margin-bottom: 16px;
+
+      text-align: center;
+      // overflow: hidden; /* Ensures the content is not revealed until the animation */
+      // border-right: 0.15em solid orange; /* The typwriter cursor */
+      // white-space: nowrap; /* Keeps the content on a single line */
+      // margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      // letter-spacing: 0.15em; /* Adjust as needed */
+      // animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+
+      @include typed(
+        $string,
+        $string2,
+        $string3,
+        (
+          type: 0.06,
+          delete: 0.03,
+          pause-deleted: 0.1,
+        ),
+        (
+          iterations: 1,
+        )
+      );
     }
+  }
 
-    @include typed(
-      $string,
-      $string2,
-      $string3,
-      (
-        type: 0.06,
-        delete: 0.03,
-        pause-deleted: 0.1,
-      ),
-      (
-        iterations: 1,
-      )
-    );
+  &__cta-heading {
+    box-sizing: content-box;
+    font-size: clamp(12em, 30vw, 25em);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.5;
+    padding: 0;
+    margin: 0;
   }
 
   &__social-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
     gap: 16px;
-    z-index: 2;
+    place-items: center;
+    padding: 32px;
+    z-index: 20;
   }
 
-  &__hero-after {
-    color: var(--accent-9);
-    width: 100%;
-  }
-
-  &__hero-heading {
-    font-weight: var(--font-weight-bold);
-    font-size: 12em;
-    padding: 0;
-    margin: 0;
-    line-height: 0.45;
-
-    @media (min-width: $sm) {
-      font-size: 20em;
-    }
-
-    @media (min-width: $md) {
-      font-size: 25em;
-    }
-  }
-
-  &__hero-image {
+  &__image-scroller {
     position: absolute;
-    right: 20%;
-    top: 40%;
-    transform: scale(0.5);
-
-    @media (min-width: $md) {
-      transform: scale(1.2);
-    }
-  }
-
-  &__hero-paragraph {
-    font-size: 4.5em;
-    font-weight: var(--font-weight-light);
-    font-style: italic;
-    display: inline-block;
-    text-align: right;
-    padding: 0;
-    margin: 0;
-  }
-
-  &__hero-image-container {
+    overflow: hidden;
+    z-index: 0;
+    top: 60%;
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 8px;
     z-index: -1;
-    position: relative;
-    background-color: var(--orange-10);
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

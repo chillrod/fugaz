@@ -5,18 +5,19 @@ import styles from "./section-1.module.scss";
 import ArticleInfo from "@/components/article-info";
 import { LayoutGroup, Variants, motion } from "@/lib/framer-motion";
 import PhotoScroller, { PhotoScrollerProps } from "@/components/photo-scroller";
+import { Heading } from "@radix-ui/themes";
 
 export const Section1Variant: Variants = {
-  // offscreen: {
-  //   y: 150,
-  // },
-  // onscreen: {
-  //   y: -45,
-  //   scale: 1,
-  //   transition: {
-  //     type: "tween",
-  //   },
-  // },
+  offscreen: {
+    y: -100,
+  },
+  onscreen: {
+    y: 150,
+    scale: 1,
+    transition: {
+      type: "tween",
+    },
+  },
 };
 
 export const Section1ImageVariants: Variants = {
@@ -24,7 +25,7 @@ export const Section1ImageVariants: Variants = {
     scale: 1,
   },
   onscreen: {
-    scale: 1.2,
+    scale: 1.1,
     transition: {
       type: "spring",
       duration: 0.5,
@@ -52,9 +53,14 @@ export default function Section1() {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div variants={Section1Variant}>
+        <section className={styles.section1}>
+          <Heading>Sobre nós</Heading>
+        </section>
+      </motion.div>
+      {/* <motion.div variants={Section1Variant}>
         <section className={styles.section1}>
           <div className={styles["section1__clip"]}>
             <motion.div variants={Section1ImageVariants}>
@@ -88,9 +94,9 @@ export default function Section1() {
             ></Image>
           </div>
         </section>
-      </motion.div>
+      </motion.div> */}
 
-      <motion.div variants={Section1Variant}>
+      {/* <motion.div variants={Section1Variant}>
         <section
           className={`
         ${styles["section1"]}
@@ -121,7 +127,7 @@ export default function Section1() {
           <div className={styles["section1__intersect-line"]}></div>
         </section>
         <PhotoScroller photos={photos} />
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }

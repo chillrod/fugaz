@@ -1,8 +1,9 @@
 "use client";
-import SplashScreen from "@/components/splash-creen";
+import SplashScreen from "@/components/splash-screen";
 import { AnimatePresence, LayoutGroup } from "@/lib/framer-motion";
 import HomeScreen from "@/views/home";
 import Section1 from "@/views/section-1";
+import { Container } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 0);
 
     return () => {
       setIsLoading(true);
@@ -26,7 +27,7 @@ export default function Home() {
         ) : (
           <>
             <HomeScreen />
-            <Section1 />
+            {/* <Section1 /> */}
           </>
         )}
       </AnimatePresence>
