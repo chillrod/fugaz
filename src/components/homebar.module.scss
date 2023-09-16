@@ -7,17 +7,11 @@
   top: 0;
   z-index: 2;
   padding: 12px;
-  width: 95%;
-  margin: 0 auto;
+  height: 5vh;
+  border-bottom: var(--accent-12) 1px dashed;
 
   font-family: var(--font-ovo);
   transition: all 0.2s ease-in-out;
-
-  &:hover {
-    /* From https://css.glass */
-    backdrop-filter: blur(8.9px);
-    -webkit-backdrop-filter: blur(8.9px);
-  }
 
   &__logo {
     text-decoration: none;

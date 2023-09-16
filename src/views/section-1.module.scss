@@ -1,25 +1,10 @@
 @import "@/styles/variables";
 
 .section1 {
-  background-color: var(--orange-10);
+  background-color: var(--grass-12);
 
   &--green {
-    background-color: var(--grass-12);
-  }
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10vw;
-
-  @media (min-width: $md) {
-    display: grid;
-    align-items: center;
-    place-items: center;
-    grid-template-columns: 1fr 1fr;
+    background-color: var(--orange-10);
   }
 
   &__clip {
@@ -33,28 +18,14 @@
   &__photo {
     width: 100%;
     height: auto;
-
-    @media (min-width: $md) {
-      height: 100%;
-    }
   }
 
   &__intersect-line {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 0px;
-    border: 1px dashed var(--amber-12);
-    z-index: 1;
   }
 
   &__article-info {
-    z-index: 2;
-    align-self: start;
   }
 
   &__logo-container {
-    grid-column: 2;
-    justify-self: end;
   }
 }

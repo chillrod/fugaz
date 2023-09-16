@@ -18,7 +18,7 @@ export default function SocialMediaLink({
       <Link href={url} target="_blank">
         <Flex align="center" gap="2">
           {children}
-          <Text size="5">{name}</Text>
+          <Text size="3">{name}</Text>
         </Flex>
       </Link>
     </div>
