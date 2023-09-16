@@ -9,19 +9,19 @@ import SocialMediaLink from "@/components/social-media-link";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export const homePageAnimationVariant: Variants = {
-  // offscreen: {
-  //   y: 400,
-  //   opacity: 0.8,
-  // },
-  // onscreen: {
-  //   y: 0,
-  //   opacity: 1,
-  //   transition: {
-  //     type: "spring",
-  //     stiffness: 15,
-  //     duration: 0.1,
-  //   },
-  // },
+  offscreen: {
+    y: 400,
+    opacity: 0.8,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 15,
+      duration: 0.1,
+    },
+  },
 };
 
 const photos: PhotoScrollerProps[] = [
@@ -66,7 +66,7 @@ export default function HomeScreen() {
         <LayoutGroup>
           <motion.main
             className={styles["home"]}
-            // variants={homePageAnimationVariant}
+            variants={homePageAnimationVariant}
           >
             <section className={styles["home__header"]}>
               <div
