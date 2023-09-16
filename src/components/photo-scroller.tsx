@@ -19,6 +19,7 @@ export default function PhotoScroller({
       {photos.map((photo, id) => {
         return (
           <motion.div
+            key={id}
             whileHover={{
               scale: 1.5,
               transition: {
@@ -30,7 +31,6 @@ export default function PhotoScroller({
             <Image
               className={`${styles["photo-scroller__photo"]}
             `}
-              key={id}
               src={photo.src}
               alt={photo.alt}
               width={300}
